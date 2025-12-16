@@ -3,9 +3,10 @@ from datetime import datetime
 import requests  # type: ignore[import-untyped]
 from core.domains.location import Location
 from core.domains.weather import Weather
+from core.protocols.protocols import WeatherProtocol
 
 
-class WeatherApiClient:
+class WeatherApiClient(WeatherProtocol):
 
     def get_weather(self, location: Location) -> Weather:
         BASE_URL = "https://api.open-meteo.com/v1/forecast"
