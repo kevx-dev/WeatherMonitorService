@@ -9,6 +9,6 @@ class WeatherNotificationService:
         self.messenger: MessengerProtocol = messenger
         self.weather_service: WeatherService = weather_service
 
-    def run(self,location:Location):
+    def run(self, location: Location):
         summary = self.weather_service.get_weather_summary(location=location)
         self.messenger.send_message(summary)

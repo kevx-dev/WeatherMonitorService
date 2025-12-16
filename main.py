@@ -8,12 +8,13 @@ from service.weather_service import WeatherService
 
 def run():
     config = Config.from_files()
-    location = Location(name=config.name,latitude=config.latitude,longitude=config.longitude)
+    location = Location(name=config.name, latitude=config.latitude, longitude=config.longitude)
     weather_client = WeatherApiClient()
     weather_service = WeatherService(weather_client)
     messenger = TelegramMessenger(chat_id=config.telegram_chat_id, api_token=config.telegram_api_token)
-    notification_service = WeatherNotificationService(messenger=messenger,weather_service=weather_service)
+    notification_service = WeatherNotificationService(messenger=messenger, weather_service=weather_service)
     notification_service.run(location=location)
+
 
 if __name__ == "__main__":
     run()

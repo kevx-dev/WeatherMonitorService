@@ -12,5 +12,5 @@ class WeatherProtocol(Protocol):
 
 class MessengerProtocol(Protocol):
 
-    def send_message(self, message:str) -> None:
+    def send_message(self, message: str) -> None:
         ...
