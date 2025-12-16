@@ -8,3 +8,9 @@ class WeatherProtocol(Protocol):
 
     def get_weather(self, location: Location) -> Weather:
         ...
+
+
+class MessengerProtocol(Protocol):
+
+    def send_message(self, message:str) -> None:
+        ...
